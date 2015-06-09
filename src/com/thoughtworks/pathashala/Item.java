@@ -24,7 +24,7 @@ public class Item {
         bookKeywords.add("book");
 
         ArrayList<String> foodKeywords = new ArrayList<>();
-        bookKeywords.add("chocolates");
+        bookKeywords.add("chocolate");
 
         ArrayList<String> medicalKeywords = new ArrayList<>();
         bookKeywords.add("headache pills");
@@ -60,7 +60,7 @@ public class Item {
 
     private static boolean isStringInList(String string, List<String> collection) {
         for (String item : collection) {
-            if (item.toLowerCase().contains(string.toLowerCase()))
+            if (string.toLowerCase().contains(item.toLowerCase()))
                 return true;
         }
         return false;
@@ -79,7 +79,10 @@ public class Item {
     }
 
     public Money getImportTax() {
-        return price.calculatePercentage(5).roundOff();
+        if(isImported)
+            return price.calculatePercentage(5).roundOff();
+        else
+            return new Money(0.0);
     }
 }
 

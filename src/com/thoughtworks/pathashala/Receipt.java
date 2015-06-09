@@ -10,6 +10,11 @@ public class Receipt {
     }
 
     public Money calculateSalesTax() {
-        return new Money(1.50);
+        Money sum = new Money(0.0);
+        for (Item item : items) {
+            sum = sum.add(item.getImportTax());
+            sum = sum.add(item.getBasicSalesTax());
+        }
+        return sum;
     }
 }
