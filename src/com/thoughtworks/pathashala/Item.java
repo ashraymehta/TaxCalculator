@@ -17,6 +17,7 @@ public class Item {
         this.price = price;
         this.category = category;
         this.descriptionString = descriptionString;
+        this.isImported = isImported;
     }
 
     public static Item parse(String itemDetails) {
@@ -30,7 +31,7 @@ public class Item {
         bookKeywords.add("headache pills");
 
         boolean isImported = false;
-        if (itemDetails.toLowerCase().contains("imported "))
+        if (itemDetails.toLowerCase().contains("imported"))
             isImported = true;
 
         String[] splitDetails = itemDetails.split(" at ");

@@ -22,4 +22,18 @@ public class ReceiptTest {
 
         assertEquals(expectedString, actualString);
     }
+
+    @Test
+    public void shouldCalculateSalesTaxesForAllItemsIncludingImportedItems() throws Exception {
+        ArrayList<Item> items = new ArrayList<>();
+        items.add(Item.parse("1 imported box of chocolates at 10.00"));
+        items.add(Item.parse("1 imported bottle of perfume at 47.50"));
+        Receipt receipt = new Receipt(items);
+        Money tax = receipt.calculateSalesTax();
+
+        String actualString = tax.toString();
+        String expectedString = "7.65";
+
+        assertEquals(expectedString, actualString);
+    }
 }
