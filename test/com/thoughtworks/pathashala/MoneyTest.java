@@ -57,4 +57,16 @@ public class MoneyTest {
 
         assertEquals(expectedString, actualString);
     }
+
+    @Test
+    public void shouldAddMoney() throws Exception {
+        Money money = new Money(9.00);
+        Money secondMoney = new Money(1.00);
+        Money sum = money.add(secondMoney);
+
+        String actualString = sum.toString();
+        String expectedString = "10.0";
+
+        assertEquals(expectedString, actualString);
+    }
 }

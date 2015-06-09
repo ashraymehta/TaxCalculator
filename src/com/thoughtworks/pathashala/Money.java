@@ -38,4 +38,8 @@ public class Money {
     public Money calculatePercentage(int percent) {
         return new Money((totalPaise * percent / 100) / 100);
     }
+
+    public Money add(Money secondMoney) {
+        return new Money((totalPaise + secondMoney.totalPaise) / 100);
+    }
 }
