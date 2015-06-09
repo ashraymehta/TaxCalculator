@@ -36,4 +36,14 @@ public class MoneyTest {
 
         assertEquals(expectedString, actualString);
     }
+
+    @Test
+    public void shouldParseMoneyValueString() throws Exception {
+        Money money = Money.parse("7.90");
+
+        String actualString = money.toString();
+        String expectedString = "7.90";
+
+        assertEquals(expectedString, actualString);
+    }
 }

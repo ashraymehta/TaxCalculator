@@ -26,4 +26,10 @@ public class Money {
     public String toString() {
         return (int)(totalPaise / 100) + "." + (int)(totalPaise % 100);
     }
+
+    public static Money parse(String splitDetail) {
+        splitDetail = splitDetail.trim();
+        double value = Double.parseDouble(splitDetail);
+        return new Money(value);
+    }
 }
