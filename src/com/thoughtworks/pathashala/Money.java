@@ -13,7 +13,7 @@ public class Money {
         double decimalPart = totalPaise % 100;
         double decimalFraction = decimalPart % 1;
         if(decimalFraction >= .5) {
-            decimalPart += decimalPart % 5;
+            decimalPart += 5 - decimalPart % 5;
         }
         else {
             decimalPart -= decimalPart % 5;
@@ -31,5 +31,9 @@ public class Money {
         splitDetail = splitDetail.trim();
         double value = Double.parseDouble(splitDetail);
         return new Money(value);
+    }
+
+    public Money calculatePercentage(int percent) {
+        return new Money((totalPaise * percent / 100) / 100).roundOff();
     }
 }

@@ -27,7 +27,7 @@ public class MoneyTest {
     }
 
     @Test
-    public void shouldRoundOffWhen() throws Exception {
+    public void shouldRoundOff() throws Exception {
         Money money = new Money(7.625);
         Money roundOff = money.roundOff();
 
@@ -43,6 +43,17 @@ public class MoneyTest {
 
         String actualString = money.toString();
         String expectedString = "7.90";
+
+        assertEquals(expectedString, actualString);
+    }
+
+    @Test
+    public void shouldCalculatePercentage() throws Exception {
+        Money money = Money.parse("10.00");
+        Money percent = money.calculatePercentage(10);
+
+        String actualString = percent.toString();
+        String expectedString = "1.0";
 
         assertEquals(expectedString, actualString);
     }
