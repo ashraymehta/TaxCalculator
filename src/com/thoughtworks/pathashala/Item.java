@@ -49,9 +49,9 @@ public class Item {
 
         StringBuilder stringBuilder = new StringBuilder();
         for(int i=1; i<spaceSplit.length; i++) {
-            stringBuilder.append(spaceSplit[i]).append(" ");
+            stringBuilder.append(spaceSplit[i].trim()).append(" ");
         }
-        String descriptionString = stringBuilder.toString();
+        String descriptionString = stringBuilder.toString().trim();
 
         return new Item(quantity, price, category, descriptionString);
     }
@@ -66,7 +66,7 @@ public class Item {
 
     @Override
     public String toString() {
-        return quantity + " " + descriptionString + " at " + price;
+        return quantity + " " + descriptionString + " : " + price;
     }
 }
 
