@@ -2,7 +2,7 @@ package com.thoughtworks.pathashala;
 
 public class Money {
 
-    public double totalPaise;
+    private double totalPaise;
 
     public Money(double value) {
         this.totalPaise = value * 100;

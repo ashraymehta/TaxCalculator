@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 public class MoneyTest {
     @Test
-    public void shouldRepresentProperString() throws Exception {
+    public void shouldBeRepresentedAsProperString() throws Exception {
         Money money = new Money(5.55);
 
         String actualString = money.toString();
