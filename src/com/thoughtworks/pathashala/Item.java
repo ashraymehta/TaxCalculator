@@ -33,7 +33,7 @@ public class Item {
         if (itemDetails.toLowerCase().contains("imported "))
             isImported = true;
 
-        String[] splitDetails = itemDetails.split("at");
+        String[] splitDetails = itemDetails.split(" at ");
         Money price = Money.parse(splitDetails[1]);
         String restOfDetails = splitDetails[0];
         int category = -1;
@@ -70,12 +70,16 @@ public class Item {
         if (category != Category.OTHER)
             return new Money(0.0);
         else
-            return price.calculatePercentage(10);
+            return price.calculatePercentage(10).roundOff();
     }
 
     @Override
     public String toString() {
         return quantity + " " + descriptionString + " : " + price;
+    }
+
+    public Money getImportTax() {
+        return price.calculatePercentage(5).roundOff();
     }
 }
 

@@ -38,4 +38,17 @@ public class ItemTest {
 
         assertEquals(expectedString, actualString);
     }
+
+    @Test
+    public void shouldCalculateImportDuty() throws Exception {
+        String parsedString = "1 imported bottle of perfume at 27.99";
+        Item createdItem = Item.parse(parsedString);
+
+        Money basicTax = createdItem.getImportTax();
+
+        String actualString = basicTax.toString();
+        String expectedString = "1.40";
+
+        assertEquals(expectedString, actualString);
+    }
 }

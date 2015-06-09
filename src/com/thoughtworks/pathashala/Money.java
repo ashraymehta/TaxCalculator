@@ -1,5 +1,7 @@
 package com.thoughtworks.pathashala;
 
+import java.awt.event.MouseEvent;
+
 public class Money {
 
     private double totalPaise;
@@ -34,6 +36,6 @@ public class Money {
     }
 
     public Money calculatePercentage(int percent) {
-        return new Money((totalPaise * percent / 100) / 100).roundOff();
+        return new Money((totalPaise * percent / 100) / 100);
     }
 }
