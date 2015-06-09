@@ -8,6 +8,10 @@ public class Money {
         this.totalPaise = rupees * 100 + paise;
     }
 
+    public Money roundOff() {
+        return new Money(0, Math.round(totalPaise));
+    }
+
     @Override
     public String toString() {
         return ((int)totalPaise / 100) + "." + (int)(totalPaise % 100);
